@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyPeasy - 매일이 가벼워지는 마법</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#121212',
+                            grey: '#F5F5F7',
+                            darkGrey: '#2D2D2F',
+                            accent: '#3B82F6',
+                            navy: '#1A237E'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Outfit', 'Noto Sans KR', 'sans-serif'],
+                        body: ['Noto Sans KR', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; overflow-x: hidden; background-color: #ffffff; color: #121212; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bg-gradient-soft {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #121212, #4b5563);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Overlay (Simple) -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center glass-card border-none">
+        <div class="text-2xl font-display font-extrabold tracking-tighter text-brand-black">EasyPeasy.</div>
+        <a href="https://fashionplus.co.kr" target="_blank" class="px-5 py-2 bg-brand-black text-white text-sm font-medium rounded-full hover:bg-brand-accent transition-colors duration-300">Shop Now</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="z-10 text-center lg:text-left">
+                <span class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-widest text-brand-accent bg-blue-50 rounded-full animate-fade-in-up">INNOVATION FOR BACKPACK</span>
+                <h1 class="font-display text-5xl lg:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">
+                    매일이 가벼워지는 마법,<br/>
+                    <span class="text-brand-accent">EasyPeasy!</span>
+                </h1>
+                <p class="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 animate-fade-in-up" style="animation-delay: 0.2s">
+                    학교 가는 길, 무거웠던 발걸음이 가벼워집니다. 우유 한 팩만큼 가벼운 500g의 혁신. 스타일과 건강을 모두 잡은 단 하나의 선택.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style="animation-delay: 0.4s">
+                    <button onclick="document.getElementById('pain-point').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-brand-black text-white rounded-2xl font-bold hover:scale-105 transition-transform">자세히 알아보기</button>
+                </div>
+            </div>
+            <div class="relative flex justify-center items-center animate-float">
+                <div class="absolute w-[120%] h-[120%] bg-blue-50 rounded-full filter blur-3xl opacity-50 -z-10"></div>
+                <img src="https://opal.google/board/blobs/cb35dcf6-c1b0-47c3-b6a0-29dafcb2e04a" alt="EasyPeasy Hero" class="w-full max-w-md lg:max-w-xl drop-shadow-2xl rounded-3xl object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Point Section -->
+    <section id="pain-point" class="py-24 bg-brand-grey overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="scroll-reveal flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <img src="https://opal.google/board/blobs/7d73bee6-ad63-4729-ace8-14a54d3fe06a" alt="Pain Point" class="rounded-3xl shadow-xl w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-8 leading-tight">오늘도 아이의 어깨가<br/><span class="text-gray-400">축 처져 있나요?</span></h2>
+                    <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+                        두꺼운 교과서, 아이패드, 무거운 텀블러까지... 우리 아이의 성장을 방해하는 무게는 이제 그만. 거북목과 어깨 통증이 걱정된다면 가방부터 바꿔주세요. 무게는 줄이고 꿈은 더 크게 담을 수 있도록 이지피지가 함께합니다.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                            <span class="text-3xl mb-2 block">🚫</span>
+                            <span class="font-bold">어깨 통증 방지</span>
+                        </div>
+                        <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                            <span class="text-3xl mb-2 block">📏</span>
+                            <span class="font-bold">성장판 보호</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution/Features Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 scroll-reveal">
+                <h2 class="text-4xl lg:text-5xl font-display font-extrabold mb-4">어깨는 가볍게, 스타일은 엣지 있게.</h2>
+                <div class="w-20 h-1.5 bg-brand-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Point 01 -->
+                <div class="scroll-reveal p-10 bg-brand-grey rounded-[3rem] hover:bg-blue-50 transition-colors duration-500 group" style="transition-delay: 0.1s">
+                    <span class="text-6xl font-display font-black text-white group-hover:text-brand-accent transition-colors duration-500">01</span>
+                    <h3 class="text-2xl font-bold mt-6 mb-4">FEATHER WEIGHT</h3>
+                    <p class="text-gray-600 leading-relaxed">우유 한 팩보다 가벼운 520g 초경량 설계. 어깨의 부담을 획기적으로 덜었습니다.</p>
+                </div>
+                <!-- Point 02 -->
+                <div class="scroll-reveal p-10 bg-brand-grey rounded-[3rem] hover:bg-blue-50 transition-colors duration-500 group" style="transition-delay: 0.2s">
+                    <span class="text-6xl font-display font-black text-white group-hover:text-brand-accent transition-colors duration-500">02</span>
+                    <h3 class="text-2xl font-bold mt-6 mb-4">ERGO-FIT</h3>
+                    <p class="text-gray-600 leading-relaxed">하중을 고르게 분산시키는 S자형 인체공학 스트랩. 장시간 착용에도 편안함이 유지됩니다.</p>
+                </div>
+                <!-- Point 03 -->
+                <div class="scroll-reveal p-10 bg-brand-grey rounded-[3rem] hover:bg-blue-50 transition-colors duration-500 group" style="transition-delay: 0.3s">
+                    <span class="text-6xl font-display font-black text-white group-hover:text-brand-accent transition-colors duration-500">03</span>
+                    <h3 class="text-2xl font-bold mt-6 mb-4">MINIMAL LOOK</h3>
+                    <p class="text-gray-600 leading-relaxed">교복부터 사복까지 완벽한 조화. 유치함은 빼고 세련된 감성만 담았습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase (Midnight Black) -->
+    <section class="py-24 bg-brand-black text-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 scroll-reveal">
+                    <h2 class="font-display text-5xl font-black mb-4">Midnight Black</h2>
+                    <p class="text-xl text-gray-400 mb-8 font-light italic">"Deep, Dark, and Durable"</p>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-10">
+                        시크하고 오염 걱정 없는 압도적 베스트셀러. 고밀도 Dry-Tech 원단으로 완성된 깊은 블랙의 품격을 경험하세요.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3">
+                            <span class="w-5 h-5 bg-brand-accent rounded-full flex items-center justify-center text-[10px]">✓</span>
+                            31cm x 45cm x 14cm
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-5 h-5 bg-brand-accent rounded-full flex items-center justify-center text-[10px]">✓</span>
+                            Ultra-lightweight 520g
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 scroll-reveal" style="transition-delay: 0.2s">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-brand-accent/20 rounded-3xl blur-2xl group-hover:bg-brand-accent/30 transition-all duration-700"></div>
+                        <img src="https://opal.google/board/blobs/96f358c1-22be-4e73-b9c3-c33e03737b91" alt="Midnight Black Showcase" class="relative rounded-3xl shadow-2xl w-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Bento Grid -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl font-bold">Details Matter</h2>
+                <p class="text-gray-500 mt-4">완성도를 결정하는 한 끗 차이의 디테일</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
+                <!-- Comfort -->
+                <div class="md:col-span-2 md:row-span-1 scroll-reveal glass-card p-8 rounded-[2rem] flex flex-col justify-between overflow-hidden group">
+                    <div class="z-10">
+                        <h3 class="text-2xl font-bold mb-2">Comfort</h3>
+                        <p class="text-gray-600">공기가 통하는 에어 메쉬와 폭신한 쿠션. 땀은 식히고 압박은 줄였습니다.</p>
+                    </div>
+                    <img src="https://opal.google/board/blobs/bea4ee73-43df-4cac-b042-4e1f1cfa682a" class="h-48 object-cover rounded-xl mt-6 group-hover:scale-105 transition-transform duration-700" alt="Mesh detail">
+                </div>
+                
+                <!-- Storage -->
+                <div class="md:col-span-1 md:row-span-2 scroll-reveal bg-brand-grey p-8 rounded-[2rem] flex flex-col justify-center items-center text-center">
+                    <div class="mb-8 p-6 bg-white rounded-full shadow-inner">
+                        <svg class="w-16 h-16 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3m0 0c.856 0 1.683.097 2.474.285m-7.469 2.387A9.64 9.64 0 0112 4.75c1.323 0 2.58.266 3.725.747m-9.454 2.373A9.69 9.69 0 004.75 12c0 1.303.256 2.546.721 3.674M7.17 6.963a10.05 10.05 0 0112.59 0M18.5 12c0 1.303-.256 2.546-.721 3.674M12 18.75a9.75 9.75 0 01-6.708-2.718m6.708 2.718a9.75 9.75 0 006.708-2.718M12 18.75c-1.323 0-2.58-.266-3.725-.747m3.725.747c1.323 0 2.58-.266 3.725-.747m-9.454-2.373a9.69 9.69 0 01-1.425-3.674c0-1.303.256-2.546.721-3.674m0 7.348a9.715 9.715 0 011.425-3.674"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Storage</h3>
+                    <p class="text-gray-600 px-2">흔들림 없는 안전한 수납. 아이패드와 노트북을 위한 전용 벨크로 포켓.</p>
+                </div>
+                
+                <!-- Utility -->
+                <div class="md:col-span-1 md:row-span-1 scroll-reveal bg-brand-accent text-white p-8 rounded-[2rem] flex flex-col justify-end">
+                    <h3 class="text-2xl font-bold mb-2">Utility</h3>
+                    <p class="text-blue-100 opacity-90">사이드 포켓과 나만의 D링 키링 고리.</p>
+                </div>
+                
+                <!-- Safety & Fabric -->
+                <div class="md:col-span-2 md:row-span-1 scroll-reveal bg-brand-black text-white p-8 rounded-[2rem] flex items-center gap-8 overflow-hidden">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-2">Safety & Fabric</h3>
+                        <p class="text-gray-400 text-sm">KC 인증 완료된 100% 리사이클 친환경 소재. 생활 방수까지 완벽하게.</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 border-4 border-dashed border-gray-700 rounded-full flex items-center justify-center animate-spin-slow">
+                             <svg class="w-10 h-10 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 11a1 1 0 112 0 1 1 0 01-2 0zm5 0a1 1 0 112 0 1 1 0 01-2 0zm-5 4a1 1 0 112 0 1 1 0 01-2 0zm5 0a1 1 0 112 0 1 1 0 01-2 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Styling Photo -->
+                <div class="md:col-span-1 md:row-span-1 scroll-reveal overflow-hidden rounded-[2rem]">
+                    <img src="https://opal.google/board/blobs/c57872c9-24ce-4a5e-85a5-c8d78496f271" class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Styling 1">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Lineup Section -->
+    <section class="py-24 bg-brand-grey">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl font-display font-black mb-4">The EasyPeasy Palette</h2>
+                <p class="text-gray-500">당신의 취향을 담은 세 가지 컬러웨이</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Color 1 -->
+                <div class="scroll-reveal group">
+                    <div class="rounded-[2.5rem] overflow-hidden mb-6 aspect-[4/5] bg-white shadow-lg">
+                        <img src="https://opal.google/board/blobs/96f358c1-22be-4e73-b9c3-c33e03737b91" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Midnight Black">
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Midnight Black</h4>
+                    <p class="text-gray-500 text-sm">시크하고 오염 걱정 없는 도시적인 감성</p>
+                </div>
+                <!-- Color 2 -->
+                <div class="scroll-reveal group" style="transition-delay: 0.1s">
+                    <div class="rounded-[2.5rem] overflow-hidden mb-6 aspect-[4/5] bg-white shadow-lg">
+                        <img src="https://opal.google/board/blobs/eca61b6f-916f-4243-ba04-4a6bc2a717eb" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Cloud Grey">
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-gray-500">Cloud Grey</h4>
+                    <p class="text-gray-400 text-sm">차분하고 지적인 무드를 연출하는 세련된 컬러</p>
+                </div>
+                <!-- Color 3 -->
+                <div class="scroll-reveal group" style="transition-delay: 0.2s">
+                    <div class="rounded-[2.5rem] overflow-hidden mb-6 aspect-[4/5] bg-white shadow-lg">
+                        <img src="https://opal.google/board/blobs/70be1aea-c81c-4e5a-a64c-e4352320f01a" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Deep Navy">
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-brand-navy">Deep Navy</h4>
+                    <p class="text-gray-400 text-sm">신뢰감을 주는 클래식하고 단정한 정석 컬러</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-black -z-10"></div>
+        <div class="container mx-auto px-6 text-center text-white relative">
+            <div class="scroll-reveal max-w-3xl mx-auto">
+                <h2 class="text-4xl lg:text-6xl font-bold mb-8 leading-tight">아이의 내일을 더 가볍게,<br/>이지피지와 함께 시작하세요.</h2>
+                
+                <div class="inline-block p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 mb-12">
+                    <p class="text-2xl mb-2">🎁 Special Gift Event</p>
+                    <p class="text-gray-300">지금 구매하시는 모든 분들께<br/><span class="text-brand-accent font-bold">이지피지 한정판 브랜드 키링</span>을 선물로 드립니다!</p>
+                </div>
+                
+                <div>
+                    <a href="https://fashionplus.co.kr" target="_blank" class="inline-block px-10 py-5 bg-brand-accent hover:bg-white hover:text-brand-black text-white rounded-2xl font-black text-xl transition-all duration-300 transform hover:scale-105 shadow-xl shadow-brand-accent/20">
+                        내 아이를 위한 500g의 선물, 지금 구매하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Page Trigger -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all group">
+            <svg class="w-6 h-6 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+        </button>
+    </div>
+
+    <script>
+        // Intersection Observer for Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Smooth reveal for images on load
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
